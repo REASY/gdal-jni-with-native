@@ -1,3 +1,9 @@
+jdk: openjdk11
+
+before_install:
+  - git lfs pull
+
 install:
+  - java -version
   - echo "Install jar"
   - ./gradlew clean install

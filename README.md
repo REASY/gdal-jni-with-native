@@ -1,5 +1,7 @@
 gdal-jni-with-native
 ======
+[<img src="https://jitpack.io/v/REASY/gdal-jni-with-native.svg">](https://jitpack.io/#REASY/gdal-jni-with-native)
+
 This project builds GDAL, extract native libraries and makes it available as Java library. At the moment it only supports GDAL on Ubuntu x64  (Linux)
 
 ### Build
@@ -14,3 +16,6 @@ All of this is done in a script [generate_native_modules.sh](scripts/generate_na
 ```bash
 ./scripts/generate_native_modules.sh
 ```
+
+### Note on the usage
+Please, make sure that you set an environment variable PROJ_DATA to writable (preferably temporary) folder, for example `/tmp/gdal-jni-with-native/proj/`. That env variable is expected by PROJ, so it cannot be set on runtime by the same process.

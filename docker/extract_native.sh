@@ -53,3 +53,6 @@ do
   echo $lib >> $path_native_modules_to_load
 done
 
+# Copy proj.db
+cp /usr/local/share/proj/proj.db "${copy_path}/proj"
+echo "/usr/local/share/proj/proj.db to ${copy_path}/proj"

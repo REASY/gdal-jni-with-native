@@ -33,5 +33,8 @@ docker run -u $(id -u):$(id -g) \
   -v $(pwd)/src/main/resources/:/resources qartez-engine/lddtopo:"$GDAL_VERSION" /usr/share/java/libgdalalljni.so /resources
 
 # Build and test GDAL native library
-./gradlew build && java -cp build/libs/gdal-jni-with-native-3.5.3.0.jar com.github.reasy.gdal.GdalExample
+lib_name=$(./gradlew properties | grep ^name | sed 's/name: //g')
+lib_version=$(./gradlew properties | grep ^version | sed 's/version: //g')
+lib_full_name="$lib_name-$lib_version.jar"
+./gradlew clean build && PROJ_DATA=/tmp/gdal-jni-with-native/proj/ java -cp "build/libs/$lib_full_name" com.github.reasy.gdal.GdalExample
 

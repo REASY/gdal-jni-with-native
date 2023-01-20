@@ -36,5 +36,5 @@ docker run -u $(id -u):$(id -g) \
 lib_name=$(./gradlew properties | grep ^name | sed 's/name: //g')
 lib_version=$(./gradlew properties | grep ^version | sed 's/version: //g')
 lib_full_name="$lib_name-$lib_version.jar"
-./gradlew clean build && PROJ_DATA=/tmp/gdal-jni-with-native/proj/ java -cp "build/libs/$lib_full_name" com.github.reasy.gdal.GdalExample
+./gradlew clean build && java -cp "build/libs/$lib_full_name" com.github.reasy.gdal.GdalExample
 

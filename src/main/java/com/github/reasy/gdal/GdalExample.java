@@ -49,7 +49,10 @@ public class GdalExample {
         Dataset memDs = drv.Create("", xSize, ySize, 1, type);
         System.out.printf("Created %d x %d dataset with 1 band and type %d\n", xSize, ySize, type);
 
-        memDs.SetProjection("EPSG:32611");
+        int err = memDs.SetProjection("EPSG:32611");
+        if (err != gdalconstConstants.CE_None) {
+            throw new IllegalStateException(String.format("Could not set projection, error: %d", err));
+        }
         memDs.GetRasterBand(1).WriteRaster(0, 0, xSize, ySize, data);
         memDs.BuildOverviews("NEAREST", new int[]{2, 4, 8, 16, 32});
 
@@ -87,7 +90,6 @@ public class GdalExample {
 
         // Force to load GDAL JNI and all dependencies
         JNIGdalLoader.load();
-
         gdal.AllRegister();
 
         runExamples();

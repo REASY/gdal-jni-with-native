@@ -1,5 +1,5 @@
 group = 'gdal-jni-with-native'
-version = '3.5.3.3'
+version = '3.5.3.4'
 
 buildscript {
     repositories {

@@ -15,8 +15,7 @@ path_to_json="/tmp/topo_sorted.json"
 RUST_LOG=info /opt/lddtopo-rs/target/release/lddtopo-rs --shared-library-path $path_shared_library --output-file $path_to_json
 
 # Skipping libmfhdfalt due to /tmp/xxxx.7669203887046987097/libmfhdfalt_5076252650710112250.so: undefined symbol: error_top
-# Skip libproj.so.15
-modules_to_ignore=("ld-linux-x86-64" "libc.so" "libm.so" "libpthread"  "libstdc" "libmfhdfalt" "libproj.so.15")
+modules_to_ignore=("ld-linux-x86-64" "libc.so" "libm.so" "libpthread"  "libstdc" "libmfhdfalt")
 os_name="linux"
 arch_type="x86-64"
 
